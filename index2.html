@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.min.js"></script>
+    <script src="./underscrore.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/template" id="tp1">
+        <% _.each(data, function(n){ %>
+            <p>
+                <%= n.name %>
+            </p>
+            <% }); %>
+    </script>
+    <script>
+        var data = [{
+            name: "ycc"
+        }, {
+            name: "laowang"
+        }, {
+            name: "laoli"
+        }]
+        $('body').append(_.template($('#tp1').html(), data));
+    </script>
+</body>
+
+</html>

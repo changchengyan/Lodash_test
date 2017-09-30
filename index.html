@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.min.js"></script>
+    <script src="./underscrore.js"></script>
+    <title>Document</title>
+    <style type="text/css">
+        .main {
+            border: 1px solid red;
+            margin-bottom: 10px;
+        }
+        
+        .page1 {
+            color: aqua
+        }
+        
+        .page2 {
+            color: blue
+        }
+        
+        .page3 {
+            color: blueviolet
+        }
+        
+        .main {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/template" id="tpl">
+        <% _.each(data, function(n){ %>
+            <div class="main">
+                <span class="page1">姓名：
+                    <%= n.name %></span>
+                <span class="page2">, 年龄：
+                            <%= n.age %></span>
+                <span class="page3">, 性别：
+                        <%= n.sex %></span>
+                <span class="page4">,地址：
+                        <%= n.map.addr %></span>
+                <span class="page5">,邮箱：
+                        <%= n.map.post %></span>
+                <span class="page6"> ,其它：
+                        <%= n.map.jpt %></span>
+            </div>
+            <% }); %>
+    </script>
+    <script>
+        var data = [{
+            name: 'mike',
+            age: 18,
+            sex: '男',
+            map: {
+                "addr": 123,
+                "post": "psk",
+                "jpt": "psd"
+            }
+        }, {
+            name: 'nina',
+            age: 20,
+            sex: '女',
+            map: {
+                "addr": 456,
+                "post": "psk",
+                "jpt": "psd"
+            }
+        }, {
+            name: 'elle',
+            age: 26,
+            sex: '女',
+            map: {
+                "addr": 789,
+                "post": "psk",
+                "jpt": "psd"
+            }
+        }];
+        $('body').append(_.template($('#tpl').html(), data));
+    </script>
+</body>
+
+</html>
